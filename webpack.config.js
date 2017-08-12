@@ -27,7 +27,7 @@ let plugins = [
 		"showErrors": true,
 		"chunks": "all",
 		"excludeChunks": [],
-		"title": "React SWAPI",
+		"title": "TP React Seeder",
 		"xhtml": true,
 		"chunksSortMode": function sort(left, right) {
 			let leftIndex = entryPoints.indexOf(left.names[0]);
