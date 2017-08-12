@@ -45,7 +45,7 @@ let plugins = [
 			}
 		}
 	}),
-	new BaseHrefWebpackPlugin({})
+	new BaseHrefPlugin({})
 ];
 
 if(isProduction) {
