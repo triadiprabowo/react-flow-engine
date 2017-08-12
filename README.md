@@ -27,4 +27,4 @@ npm install
 * `npm run build` - building dist folder project
 
 ### Production Mode ###
-* edit `env.js` prodEnvironment to `true` to start minifying files and gzip compression (updated soon)
+* edit `env.js` prodEnvironment to `true` to start minifying files and gzip compression
