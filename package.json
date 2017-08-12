@@ -11,6 +11,7 @@
 	"author": "Triadi Prabowo",
 	"license": "ISC",
 	"dependencies": {
+		"core-js": "^2.5.0",
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1",
 		"react-redux": "^5.0.6",
@@ -18,8 +19,7 @@
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
 		"redux-promise-middleware": "^4.3.0",
-		"redux-thunk": "^2.2.0",
-		"webpack": "^3.5.4"
+		"redux-thunk": "^2.2.0"		
 	},
 	"devDependencies": {
 		"autoprefixer": "^7.1.2",
@@ -32,14 +32,18 @@
 		"babel-preset-es2016": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-1": "^6.24.1",
+		"base-href-webpack-plugin": "^1.0.2",
+		"compression-webpack-plugin": "^1.0.0",
 		"css-loader": "^0.28.4",
 		"cssnano": "^3.10.0",
+		"exports-loader": "^0.6.4",
 		"html-webpack-plugin": "^2.30.1",
 		"postcss-loader": "^2.0.6",
 		"postcss-url": "^7.1.2",
 		"style-loader": "^0.18.2",
 		"stylus": "^0.54.5",
 		"stylus-loader": "^3.0.1",
+		"webpack": "^3.5.4",
 		"webpack-dev-server": "^2.7.1"
 	}
 }

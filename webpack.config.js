@@ -4,16 +4,17 @@ const webpack = require('webpack');
 const path = require('path');
 const postcssUrl = require('postcss-url');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BaseHrefPlugin = require('base-href-webpack-plugin');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 
 // config contant
 const baseHref = "";
 const deployUrl = "";
-const entryPoints = ["styles","main"];
+const entryPoints = ["polyfills", "styles", "main"];
 
 let plugins = [
-	new webpack.NoEmitOnErrorsPlugin(),
 	new webpack.ProgressPlugin(),
 	new HtmlWebpackPlugin({
 		"template": __dirname+"/src/index.html",
@@ -43,11 +44,33 @@ let plugins = [
 				return 0;
 			}
 		}
-	})
+	}),
+	new BaseHrefWebpackPlugin({})
 ];
 
 if(isProduction) {
-	plugins.push(new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }));
+	plugins = plugins.concat([
+		new webpack.optimize.UglifyJsPlugin({ 
+			mangle: false, 
+			sourcemap: false,
+			compress: {
+		        warnings: false,
+		        pure_getters: true,
+		        unsafe: true,
+		        unsafe_comps: true,
+		        screw_ie8: true
+	      	}
+		}),
+		new webpack.NoEmitOnErrorsPlugin(),
+		new webpack.optimize.AggressiveMergingPlugin(),
+		new CompressionPlugin({
+			asset: "[path].gz[query]",
+			algorithm: "gzip",
+			test: /\.js$|\.styl$|\.css$|\.html$/,
+			threshold: 10240,
+			minRatio: 0
+		})
+	]);
 }
 
 const postcssPlugins = function () {
@@ -91,7 +114,8 @@ module.exports = {
 	devtool: !isProduction? "inline-sourcemap" : null,
 	entry: {
 		main: ['./src/main.js'],
-		styles: ['./src/main.styl']
+		styles: ['./src/main.styl'],
+		polyfills: ['./src/polyfills.js']
 	},
 	output: {
 		path: __dirname+'/dist',
@@ -108,6 +132,29 @@ module.exports = {
 					presets: ['react', 'es2016', 'stage-1'],
 					plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
 				}
+			},
+			{
+				exclude: [
+					__dirname+"/src/main.styl"
+				],
+				test: /\.css$/,
+				use: [
+					"exports-loader?module.exports.toString()",
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: false,
+							importLoaders: 1
+						}
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							ident: "postcss",
+							plugins: postcssPlugins
+						}
+					}
+				]
 			},
 			{
 				exclude: [
@@ -135,6 +182,29 @@ module.exports = {
 						options: {
 							"sourceMap": false,
 							"paths": []
+						}
+					}
+				]
+			},
+			{
+				include: [
+					__dirname+"/src/main.styl"
+				],
+				test: /\.css$/,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: false,
+							importLoaders: 1
+						}
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							ident: "postcss",
+							plugins: postcssPlugins
 						}
 					}
 				]
