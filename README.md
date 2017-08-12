@@ -25,3 +25,6 @@ npm install
 
 * `npm start` - start development server on port 4000
 * `npm run build` - building dist folder project
+
+### Production Mode ###
+* edit `env.js` prodEnvironment to `true` to start minifying files and gzip compression (updated soon)
