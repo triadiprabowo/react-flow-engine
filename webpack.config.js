@@ -2,12 +2,14 @@
 const isProduction = require('./env').prodEnvironment;
 const webpack = require('webpack');
 const path = require('path');
+const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const postcssUrl = require('postcss-url');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BaseHrefPlugin = require('base-href-webpack-plugin');
+const BaseHrefPlugin = require('base-href-webpack-plugin').BaseHrefWebpackPlugin;
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
+
 
 // config contant
 const baseHref = "";
@@ -45,7 +47,8 @@ let plugins = [
 			}
 		}
 	}),
-	new BaseHrefPlugin({})
+	new BaseHrefPlugin({}),
+	new ProgressPlugin()
 ];
 
 if(isProduction) {
@@ -84,7 +87,7 @@ const postcssPlugins = function () {
 	};
 	return [
 		postcssUrl({
-			url: (URL) => {
+			url: (URL) => {				
 				// Only convert root relative URLs, which CSS-Loader won't process into require().
 				if (!URL.startsWith('/') || URL.startsWith('//')) {
 					return URL;
