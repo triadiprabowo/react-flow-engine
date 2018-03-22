@@ -4,9 +4,9 @@
 	"description": "Triadi Prabowo's custom react seeder with stylus",
 	"main": "server.js",
 	"scripts": {
-		"start": "webpack-dev-server --port=4000",
-		"build": "webpack",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "webpack-dev-server --port=4200",
+		"build:dev": "webpack",
+		"build:prod": "webpack --config=webpack.config.prod.js"
 	},
 	"author": "Triadi Prabowo",
 	"license": "ISC",

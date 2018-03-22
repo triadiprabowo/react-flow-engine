@@ -23,17 +23,3 @@ import 'core-js/fn/array/find';
 import 'core-js/fn/array/includes';
 import 'core-js/fn/number/is-nan';
 import 'core-js/fn/map';
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-
-/**
- * Date, currency, decimal and percent pipes.
- * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
- */
-// import 'intl';  // Run `npm install --save intl`.
-/**
- * Need to import at least one locale-data with intl.
- */
-// import 'intl/locale-data/jsonp/en';

@@ -47,7 +47,27 @@ let plugins = [
 		}
 	}),
 	new BaseHrefPlugin({}),
-	new ProgressPlugin()
+	new ProgressPlugin(),
+	new webpack.optimize.UglifyJsPlugin({ 
+		mangle: false, 
+		sourcemap: false,
+		compress: {
+	        warnings: false,
+	        pure_getters: true,
+	        unsafe: true,
+	        unsafe_comps: true,
+	        screw_ie8: true
+      	}
+	}),
+	new webpack.NoEmitOnErrorsPlugin(),
+	new webpack.optimize.AggressiveMergingPlugin(),
+	new CompressionPlugin({
+		asset: "[path].gz[query]",
+		algorithm: "gzip",
+		test: /\.js$|\.styl$|\.css$|\.html$/,
+		threshold: 10240,
+		minRatio: 0
+	})
 ];
 
 const postcssPlugins = function () {
@@ -84,11 +104,11 @@ const postcssPlugins = function () {
 			}
 		}),
 		autoprefixer(),
-	];
+	].concat([cssnano(minimizeOptions)]);
 };
 
 module.exports = {
-	devtool: "inline-sourcemap",
+	devtool: false,
 	entry: {
 		main: ['./src/main.js'],
 		styles: ['./src/main.styl'],
