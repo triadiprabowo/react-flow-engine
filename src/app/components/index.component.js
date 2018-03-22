@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 
 // @connect((store) => {
 // 	return {
-// 		character: store['CharacterReducer'],
-// 		movies: store['MovieReducer'],
-// 		hometown: store['HometownReducer']
+//
 // 	}
 // })
 export default class IndexComponent extends React.Component {
