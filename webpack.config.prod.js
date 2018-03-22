@@ -132,7 +132,7 @@ module.exports = {
 			},
 			{
 				exclude: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
 				test: /\.css$/,
 				use: [
@@ -155,7 +155,7 @@ module.exports = {
 			},
 			{
 				exclude: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
 				test: /\.styl$/,
 				use: [
@@ -184,35 +184,12 @@ module.exports = {
 				]
 			},
 			{
-				include: [
-					__dirname+"/src/main.styl"
-				],
-				test: /\.css$/,
-				use: [
-					"style-loader",
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: false,
-							importLoaders: 1
-						}
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							ident: "postcss",
-							plugins: postcssPlugins
-						}
-					}
-				]
-			},
-			{
-				include: [
-					__dirname+"/src/main.styl"
+				exclude: [
+					__dirname+"/src/main.scss"
 				],
 				test: /\.styl$/,
 				use: [
-					"style-loader",
+					"exports-loader?module.exports.toString()",
 					{
 						loader: "css-loader",
 						options: {
@@ -236,6 +213,59 @@ module.exports = {
 					}
 				]
 
+			},
+			{
+				include: [
+					__dirname+"/src/main.scss"
+				],
+				test: /\.css$/,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: false,
+							importLoaders: 1
+						}
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							ident: "postcss",
+							plugins: postcssPlugins
+						}
+					}
+				]
+			},
+			{
+				include: [
+					__dirname+"/src/main.scss"
+				],
+				test: /\.css$/,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: false,
+							importLoaders: 1
+						}
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							ident: "postcss",
+							plugins: postcssPlugins
+						}
+					},
+					{
+						loader: "sass-loader",
+						options: {
+							sourceMap: false,
+							paths: []
+						}
+					}
+				]
 			},
 			{
 				test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|cur|ani)$/,

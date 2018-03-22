@@ -2,8 +2,8 @@
 import { combineReducers } from "redux"
 
 // import reducers
-import StatementReducer from './statement.reducer';
+import RulesReducer from './rules.reducer';
 
 export default combineReducers({
-	StatementReducer
+	RulesReducer
 });

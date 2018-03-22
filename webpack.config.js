@@ -91,7 +91,7 @@ module.exports = {
 	devtool: "inline-sourcemap",
 	entry: {
 		main: ['./src/main.js'],
-		styles: ['./src/main.styl'],
+		styles: ['./src/main.scss'],
 		polyfills: ['./src/polyfills.js']
 	},
 	output: {
@@ -112,7 +112,7 @@ module.exports = {
 			},
 			{
 				exclude: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
 				test: /\.css$/,
 				use: [
@@ -135,9 +135,9 @@ module.exports = {
 			},
 			{
 				exclude: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
-				test: /\.styl$/,
+				test: /\.scss$/,
 				use: [
 					"exports-loader?module.exports.toString()",
 					{
@@ -155,7 +155,7 @@ module.exports = {
 						}
 					},
 					{
-						loader: "stylus-loader",
+						loader: "sass-loader",
 						options: {
 							"sourceMap": false,
 							"paths": []
@@ -165,7 +165,7 @@ module.exports = {
 			},
 			{
 				include: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
 				test: /\.css$/,
 				use: [
@@ -188,9 +188,9 @@ module.exports = {
 			},
 			{
 				include: [
-					__dirname+"/src/main.styl"
+					__dirname+"/src/main.scss"
 				],
-				test: /\.styl$/,
+				test: /\.scss$/,
 				use: [
 					"style-loader",
 					{
@@ -208,14 +208,13 @@ module.exports = {
 						}
 					},
 					{
-						loader: "stylus-loader",
+						loader: "sass-loader",
 						options: {
 							sourceMap: false,
 							paths: []
 						}
 					}
 				]
-
 			},
 			{
 				test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|cur|ani)$/,

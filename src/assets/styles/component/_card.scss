@@ -1,0 +1,17 @@
+@import '../main/_constant';
+
+.card {
+	position: relative;
+	display: block;
+	border-radius: 13.5px 13.5px 0 0;
+	box-shadow: 0 0 5px 2px rgba(0,0,0,0.075);
+	background-color: $color_base_card;
+	margin-bottom: $padd_margin_md;
+	overflow: hidden;
+	padding: $padd_margin_nm;
+
+	.card__header {
+		position: relative;
+		padding: $padd_margin_sm;
+	}
+}
