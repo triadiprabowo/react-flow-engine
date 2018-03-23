@@ -14,11 +14,9 @@ export default class AppProvider extends React.Component {
 		return (
 			<Provider store={AppStore}>
 				<Router>
-					<div>
-						<Switch>
-							<Route exact path="/" component={IndexComponent} />
-						</Switch>
-					</div>
+					<Switch>
+						<Route exact path="/" component={IndexComponent} />
+					</Switch>
 				</Router>
 			</Provider>
 		);

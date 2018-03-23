@@ -32,7 +32,13 @@
 	"author": "Triadi Prabowo",
 	"license": "ISC",
 	"dependencies": {
+		"body-parser": "^1.18.2",
+		"compression": "^1.7.2",
+		"connect-modrewrite": "^0.10.2",
+		"cookie-parser": "^1.4.3",
 		"core-js": "^2.5.0",
+		"express": "^4.16.3",
+		"http": "0.0.0",
 		"jquery": "^3.2.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",

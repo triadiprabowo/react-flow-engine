@@ -1,0 +1,28 @@
+@import '../main/_constant';
+
+.button {
+	position: relative;
+	appearance: none;
+	border-radius: 4px;
+	outline: none;
+	min-width: 200px;
+	margin-bottom: $padd_margin_md;
+	border: 1px solid $color_base_btn-border;
+	background-color: $color_base_btn;
+	padding: $padd_margin_sm $padd_margin_md;
+	box-shadow: 0 0 3px 1.5px rgba(0,0,0,0.08);
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	font-size: $font_size_btn;
+	color: $color_base_btn-font;
+	font-weight: bold;
+
+	&:hover {
+		background-color: $color_base_btn-hover;
+	}
+
+	&:active {
+		background-color: $color_base_btn-active;
+		box-shadow: inset -2px 2px 4px rgba(0,0,0,0.08);
+	}
+}

@@ -1,0 +1,44 @@
+@import '../main/_constant';
+
+.form__wrapper {
+	position: relative;
+	display: block;
+
+	.form__group {
+		position: relative;
+		display: block;
+		margin-bottom: $padd_margin_md;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		label {
+			font-weight: bold;
+			display: block;
+			margin-bottom: $padd_margin_sm;
+		}
+
+		.form__control {
+			display: block;
+			width: 98%;
+			margin: 0;
+			margin-bottom: $padd_margin_sm;
+			padding: $padd_margin_sm 1%;
+			outline: none;
+			appearance: none;
+			border: 1.5px solid $color_base_input-border;
+			transition: all .2s ease-in-out;
+			border-radius: 4px;
+			font-size: $font_size_input;
+
+			&:hover {
+				border: 1.5px solid $color_base_input-hover;
+			}
+
+			&:focus {
+				border: 1.5px solid $color_base_input-active;
+			}
+		}
+	}
+}

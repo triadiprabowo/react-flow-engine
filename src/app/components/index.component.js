@@ -33,13 +33,17 @@ export default class IndexComponent extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>React.js Flow Engine</h1>
-				<button onClick={
-					() => this.props.dispatch(FlowExecutorAction.run(this.props.rules.data, {x: 4, y: 4.5}))
-				}>Run!</button>
+			<div className="outer">
+				<div className="wrapper">
+					<div class="container">
+						<h1>React.js Flow Engine</h1>
+						<button id="flow-executor" className="button" onClick={
+							() => this.props.dispatch(FlowExecutorAction.run(this.props.rules.data, {x: 4, y: 4.5}))
+						}>Execute Rules!</button>
 
-				<ResultFlow rules={this.props.rules} />
+						<ResultFlow rules={this.props.rules} />
+					</div>
+				</div>
 			</div>
 		);
 	}

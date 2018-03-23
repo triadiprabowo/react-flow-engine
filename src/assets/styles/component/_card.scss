@@ -3,15 +3,40 @@
 .card {
 	position: relative;
 	display: block;
-	border-radius: 13.5px 13.5px 0 0;
+	border-radius: 18.5px 18.5px 0 0;
 	box-shadow: 0 0 5px 2px rgba(0,0,0,0.075);
 	background-color: $color_base_card;
 	margin-bottom: $padd_margin_md;
 	overflow: hidden;
-	padding: $padd_margin_nm;
 
 	.card__header {
 		position: relative;
-		padding: $padd_margin_sm;
+		padding: $padd_margin_nm $padd_margin_md;
+		background-color: $color_header-card;
+
+		.title {
+			margin: 0 auto;
+			text-transform: capitalize;
+			font-size: $font_size_title-card;
+		}
+
+		&.has--success {
+			background-color: $color_base_has-success;
+		}
+
+		&.has--error {
+			background-color: $color_base_has-error;
+		}
+
+		&.has--success, &.has--error {
+			.title {
+				color: $color_white;
+			}	
+		}
+	}
+
+	.card__content {
+		position: relative;
+		padding: $padd_margin_md;
 	}
 }

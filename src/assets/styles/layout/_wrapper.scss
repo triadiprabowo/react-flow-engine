@@ -1,0 +1,21 @@
+@import '../main/_constant';
+
+.outer {
+	position: relative;
+	width: 60%;
+	min-height: 100vh;
+	margin: 0 auto;
+	background-color: #f7f7f7;
+	box-shadow: 0 0 5px 3px rgba(0,0,0,0.085);
+}
+
+.wrapper {
+	position: relative;
+	display: block;
+	overflow: hidden;
+
+	.container {
+		margin: 0 auto;
+		padding: 0 $padd_margin_lg;
+	}
+}

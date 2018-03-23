@@ -111,7 +111,7 @@ module.exports = {
 	devtool: false,
 	entry: {
 		main: ['./src/main.js'],
-		styles: ['./src/main.styl'],
+		styles: ['./src/main.scss'],
 		polyfills: ['./src/polyfills.js']
 	},
 	output: {
@@ -157,7 +157,7 @@ module.exports = {
 				exclude: [
 					__dirname+"/src/main.scss"
 				],
-				test: /\.styl$/,
+				test: /\.scss$/,
 				use: [
 					"exports-loader?module.exports.toString()",
 					{
@@ -175,44 +175,13 @@ module.exports = {
 						}
 					},
 					{
-						loader: "stylus-loader",
+						loader: "sass-loader",
 						options: {
 							"sourceMap": false,
 							"paths": []
 						}
 					}
 				]
-			},
-			{
-				exclude: [
-					__dirname+"/src/main.scss"
-				],
-				test: /\.styl$/,
-				use: [
-					"exports-loader?module.exports.toString()",
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: false,
-							importLoaders: 1
-						}
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							ident: "postcss",
-							plugins: postcssPlugins
-						}
-					},
-					{
-						loader: "stylus-loader",
-						options: {
-							sourceMap: false,
-							paths: []
-						}
-					}
-				]
-
 			},
 			{
 				include: [
@@ -241,7 +210,7 @@ module.exports = {
 				include: [
 					__dirname+"/src/main.scss"
 				],
-				test: /\.css$/,
+				test: /\.scss$/,
 				use: [
 					"style-loader",
 					{

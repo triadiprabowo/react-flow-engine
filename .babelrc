@@ -19,12 +19,15 @@
 		"test": {
 			"presets": [
 				"env",
-				"react"
+				"react",
+				"es2016",
+				"stage-1"
 			],
 			"plugins": [
 				"system-import-transformer",
 				"transform-class-properties",
-				"transform-object-rest-spread"
+				"transform-object-rest-spread",
+				"transform-decorators-legacy"
 			]
 		}
 	}
